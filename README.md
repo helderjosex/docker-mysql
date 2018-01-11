@@ -6,7 +6,9 @@ This is an unofficial, open-source for MYSQL based projects that run on Docker-C
     
 ## Usage
 You are up and running in three simple steps:
+
 $ cd docker-mysql
+
 $ docker-compose up --build -d 
 
 ## Backup/Restore Mysql
