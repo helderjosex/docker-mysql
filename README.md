@@ -1,7 +1,7 @@
 # MYSQL Docker
 This is an unofficial, open-source for MYSQL based projects that run on Docker-Compose. 
 
-    Mysql 5.6
+    Mysql 5.7
     PhpMyAdmin
     
 ## Usage

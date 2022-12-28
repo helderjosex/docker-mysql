@@ -1,16 +1,15 @@
-version: '2'
-
+version: '3.7'
 services:
    mysql:
      build: ./mysql
      container_name: mysql
      ports:
-      - "33062:3306"
+      - "3306:3306"
      restart: always
      volumes:
        - mysql_data:/var/lib/mysql
      environment:
-       - MYSQL_ROOT_PASSWORD=root
+       - MYSQL_ROOT_PASSWORD=root       
    phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpMyAdmin
@@ -21,6 +20,7 @@ services:
     environment:
      PMA_HOST: mysql
      PMA_PORT: 3306
+     UPLOAD_LIMIT: 300M
     ports:
       - "8080:80"
     restart: always
