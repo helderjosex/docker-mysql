@@ -9,7 +9,7 @@ You are up and running in three simple steps:
 
 $ cd docker-mysql
 
-$ docker-compose up --build -d 
+$ docker compose up --build -d 
 
 ## Backup/Restore Mysql
 * Backup
@@ -21,4 +21,4 @@ $ docker-compose up --build -d
  
 You can just open your browser at:
 
-http://localhost:8080 or you can get the container IP: docker inspect CONTAINER ID | grep IPAddress
+http://localhost:8081 or you can get the container IP: docker inspect CONTAINER ID | grep IPAddress

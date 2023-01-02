@@ -1,28 +1,36 @@
 version: '3.7'
+#networks:
+#  backend:
+#    driver: bridge
 services:
-   mysql:
-     build: ./mysql
-     container_name: mysql
-     ports:
+  mysql:
+    build: ./5.7
+    container_name: mysql
+    ports:
       - "3306:3306"
-     restart: always
-     volumes:
-       - mysql_data:/var/lib/mysql
-     environment:
-       - MYSQL_ROOT_PASSWORD=root       
-   phpmyadmin:
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=root
+  #   networks:
+  #      - backend
+  phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpMyAdmin
+    container_name: phpmyadmin
     depends_on:
       - mysql
     links:
       - mysql
     environment:
-     PMA_HOST: mysql
-     PMA_PORT: 3306
-     UPLOAD_LIMIT: 300M
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      UPLOAD_LIMIT: 300M
     ports:
-      - "8080:80"
+      - "8081:80"
     restart: always
+#    networks:
+#      - backend
 volumes:
   mysql_data:
